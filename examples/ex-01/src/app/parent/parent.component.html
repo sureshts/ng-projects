@@ -4,29 +4,14 @@
     <input
       type="text"
       class="form-control"
-      (change)="onChangeEvent_Child1($event)"
-      placeholder="message for child1..."
+      (change)="onChangeEvent($event)"
+      placeholder="message for child2..."
     />
     <button class="btn btn-success" type="submit">Send to Child 1</button>
   </div>
-  <div class="input-group mb-3">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="message for child2..."
-    />
-    <button class="btn btn-success" type="submit">Send to Child 2</button>
-  </div>
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="message..." />
-    <button class="btn btn-success" type="submit">Send to all</button>
-  </div>
   <hr />
-  <div>Message from Child1:</div>
   <div>Message from Child2:</div>
   <hr />
   <br />
   <app-child1></app-child1>
-  <br />
-  <app-child2></app-child2>
 </div>

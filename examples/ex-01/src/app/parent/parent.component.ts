@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./parent.component.scss'],
 })
 export class ParentComponent {
-  onChangeEvent_Child1(event: Event) {
+  onChangeEvent(event: Event) {
     const input = event.target as HTMLInputElement;
 
     console.log('Input Value :' + input.value);
