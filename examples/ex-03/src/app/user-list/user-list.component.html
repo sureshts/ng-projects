@@ -1,0 +1,5 @@
+<input type="text" [(ngModel)]="filterText" />
+{{ filterText }}
+<ul>
+  <li *ngFor="let user of filterUsers">{{ user.name }} | {{ user.gender }}</li>
+</ul>
