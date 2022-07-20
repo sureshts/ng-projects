@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "e-shop/node_modules": true,
+    "e-shop/.vscode": true,
+    "e-shop/.angular": true,
+    ".vscode": true
+  }
+}
