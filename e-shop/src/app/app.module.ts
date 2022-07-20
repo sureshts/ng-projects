@@ -10,6 +10,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FormsModule } from '@angular/forms';
 import { ContactUsShellComponent } from './contact-us-shell/contact-us-shell.component';
 import { ContactUsReactiveComponent } from './contact-us-reactive/contact-us-reactive.component';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ContactUsReactiveComponent } from './contact-us-reactive/contact-us-rea
     ContactUsShellComponent,
     ContactUsReactiveComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, ProductModule],
   providers: [],
   bootstrap: [AppComponent],
 })
