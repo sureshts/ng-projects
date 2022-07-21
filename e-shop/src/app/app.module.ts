@@ -10,7 +10,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FormsModule } from '@angular/forms';
 import { ContactUsShellComponent } from './contact-us-shell/contact-us-shell.component';
 import { ContactUsReactiveComponent } from './contact-us-reactive/contact-us-reactive.component';
-
+import { ProductModule } from './product/product.module';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
+import { ProductEffects } from './product/store/effects/product.effect';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +27,18 @@ import { ContactUsReactiveComponent } from './contact-us-reactive/contact-us-rea
     ContactUsShellComponent,
     ContactUsReactiveComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    ProductModule,
+    // ngrx related imports
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([ProductEffects]),
+    StoreDevtoolsModule,
+    StoreModule.forRoot(reducers),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

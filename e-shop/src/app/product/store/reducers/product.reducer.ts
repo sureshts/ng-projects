@@ -19,5 +19,17 @@ export const productReducer = createReducer(
     return {
       ...state,
     };
+  }),
+  on(productActions.loadProductsSuccess, (state, result) => {
+    return {
+      products: result.products,
+      error: '',
+    };
+  }),
+  on(productActions.loadProductsFailure, (state, result) => {
+    return {
+      ...state,
+      error: result.message,
+    };
   })
 );

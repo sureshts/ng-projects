@@ -23,7 +23,6 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     console.log('Submitted', this.form.value);
   }
 }
