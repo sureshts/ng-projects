@@ -8,6 +8,11 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./product/product.module').then((m) => m.ProductModule),
+  },
   { path: 'contact-us', component: ContactUsShellComponent },
   { path: 'faq', component: FaqComponent },
 ];
