@@ -1,23 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactUsShellComponent } from './contact-us-shell/contact-us-shell.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { FaqComponent } from './faq/faq.component';
-import { HomeComponent } from './home/home.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  {
-    path: 'products',
-    loadChildren: () =>
-      import('./product/product.module').then((m) => m.ProductModule),
-  },
-  { path: 'contact-us', component: ContactUsShellComponent },
-  { path: 'faq', component: FaqComponent },
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'home', component: HomePageComponent},
+    {path: 'about', component: AboutPageComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
