@@ -1,4 +1,7 @@
-<app-product-list></app-product-list>
+<app-product-list
+  [products]="products$ | async"
+  (add)="onAddToBasket($event)"
+></app-product-list>
 
 <pre>
     {{ products$ | async | json }}

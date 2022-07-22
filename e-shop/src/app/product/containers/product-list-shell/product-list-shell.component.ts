@@ -20,4 +20,9 @@ export class ProductListShellComponent implements OnInit {
   ngOnInit(): void {
     this.products$ = this.store.pipe(select(getProducts));
   }
+
+  onAddToBasket(product: Product) {
+    //Dispatch action to add product to the basket
+    debugger;
+  }
 }
