@@ -1,0 +1,17 @@
+<div>
+  <p *ngIf="!products">loading...</p>
+  <table class="table" *ngIf="products">
+    <thead>
+      <tr>
+        <th scope="col">Item Name</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.price | pence}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
