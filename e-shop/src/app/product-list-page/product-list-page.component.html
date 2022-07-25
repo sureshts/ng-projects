@@ -4,12 +4,14 @@
     <thead>
       <tr>
         <th scope="col">Item Name</th>
+        <th scope="col">Category</th>
         <th scope="col">Price</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let product of products">
         <td>{{product.name}}</td>
+        <td>{{product.category}}</td>
         <td>{{product.price | pence}}</td>
       </tr>
     </tbody>
