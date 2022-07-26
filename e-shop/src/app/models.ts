@@ -5,3 +5,13 @@ export type Product = {
   description: string;
   category: string;
 };
+export var CATEGORIES: string[] = [
+  "electronics",
+  "books",
+  "clothing",
+  "sports",
+  "foodstuf",
+  "stationary",
+  "pet supplies",
+  "other"
+];

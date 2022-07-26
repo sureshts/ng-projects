@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router'
 import { Product } from '../models';
 import { ProductService } from '../product.service';
 
@@ -8,13 +9,33 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-list-page.component.css']
 })
 export class ProductListPageComponent {
-  products?: Product[] = undefined;
-  loadedProducts: boolean = false;
+  products?: Product[];
 
-  constructor(private productService: ProductService) {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
-    })
+  search?: string;
+  category?: string;
+
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationEnd) {
+        this.products = undefined;
+        this.search = undefined;
+        this.category = undefined;
+        let searchParam = this.route.snapshot.paramMap.get('search');
+        let categoryParam = this.route.snapshot.paramMap.get('category');
+        if(searchParam){
+          this.search = searchParam.replace(/\W/g, '');
+        }
+        if(categoryParam){
+          this.category = categoryParam.replace(/\W/g, '');
+        }
+        this.productService.getProducts(this.category, this.search).subscribe(products => {
+          this.products = products;
+        })
+      }
+    });
   }
 
 }
