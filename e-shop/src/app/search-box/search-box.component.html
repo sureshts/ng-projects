@@ -1,0 +1,13 @@
+<div>
+  <label for="search-input">Search:</label>
+  <input
+    id="search-input"
+    type="text"
+    [(ngModel)]="searchString"
+    (keyup.enter)="onSearch()">
+  <select [(ngModel)]="searchCategory">
+    <option>any</option>
+    <option *ngFor="let cat of validCategories">{{cat}}</option>
+  </select>
+  <button (click)="onSearch()">Submit</button>
+</div>
