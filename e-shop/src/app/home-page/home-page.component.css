@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+    color:green;
+    font-family: Roboto;
+}
+
+h3 {
+    text-align: center;
+    font-family: Roboto;
+}
+
+h4{
+    font-family: Roboto;
+}
+
+.card {
+    display: inline-block;
+    margin: 5px
+}
+
+h5{
+    font-family: Roboto;
+}
