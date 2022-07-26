@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductListPageComponent } from './product-list-page/product-list-page.component';
 import { PencePipe } from './pence.pipe';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { TeamCardComponent } from './team-card/team-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     HeaderComponent,
     ProductListPageComponent,
     PencePipe,
-    SearchBoxComponent
+    SearchBoxComponent,
+    TeamCardComponent
   ],
   imports: [
     BrowserModule,

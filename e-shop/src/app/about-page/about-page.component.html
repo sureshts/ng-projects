@@ -1,2 +1,24 @@
-<h1>About Page</h1>
-<h3>Welcome to the about page!</h3>
+<body>
+    <div>
+        <h1>About us</h1>
+    </div>
+    <div>
+      <p class="introduction">Learn more about the team that created E-Shop, how and why the project was started.</p>
+    </div>
+    <div>
+        <h2>Team</h2>
+    </div>
+    <div class="container">
+      <div class="row g-3">
+        <div class="card" style="width: 22rem;">
+          <app-team-card [imageSrc]="'https://avatars.githubusercontent.com/u/60847556?v=4'" [name]="'Christopher Lang'" [role]="'Software Developer'" [linkSrc]="'https://github.com/Chris-F5'"></app-team-card>
+        </div>
+        <div class="card" style="width: 22rem;">
+          <app-team-card [imageSrc]="'https://avatars.githubusercontent.com/u/93381458?v=4'"[name]="'Denys Mishnov'" [role]="'Software Developer'" [linkSrc]="'https://github.com/dmishnov'"></app-team-card>
+        </div>
+        <div class="card" style="width: 22rem;">
+          <app-team-card [imageSrc]="'https://avatars.githubusercontent.com/u/98432140?v=4'"[name]="'Mason Buckle'" [role]="'Software Developer'" [linkSrc]="'https://github.com/MinusMason'"></app-team-card>
+        </div>
+      </div>
+  </div>
+</body>

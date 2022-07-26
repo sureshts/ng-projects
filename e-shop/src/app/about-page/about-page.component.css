@@ -1,0 +1,13 @@
+div {
+    margin: 5px;
+}
+
+.container {
+    width: 75rem;
+    margin-left: 4rem;
+}
+
+.card {
+    display: inline-block;
+    margin: 1rem
+}
