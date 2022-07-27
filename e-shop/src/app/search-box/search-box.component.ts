@@ -18,10 +18,10 @@ export class SearchBoxComponent {
   onSearch() {
     let options: any = {};
     if(this.searchString != "") {
-      options.search = this.searchString.replace(/\W/g, '');
+      options.search = this.searchString.replace(" ", "-").replace(/[^\w|-]/g, '');
     }
     if(this.searchCategory != "any") {
-      options.category = this.searchCategory.replace(/\W/g, '');
+      options.category = this.searchCategory.replace(/[^\w|-]/g, '');
     }
 
     this.router.navigate(['/product-list', options]);

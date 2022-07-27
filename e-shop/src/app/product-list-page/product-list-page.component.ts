@@ -26,10 +26,10 @@ export class ProductListPageComponent {
         let searchParam = this.route.snapshot.paramMap.get('search');
         let categoryParam = this.route.snapshot.paramMap.get('category');
         if(searchParam){
-          this.search = searchParam.replace(/\W/g, '');
+          this.search = searchParam.replace(/[^\w|-]/g, '').replace("-", " ");
         }
         if(categoryParam){
-          this.category = categoryParam.replace(/\W/g, '');
+          this.category = categoryParam.replace(/[^\w|-]/g, '');
         }
         this.productService.getProducts(this.category, this.search).subscribe(products => {
           this.products = products;
