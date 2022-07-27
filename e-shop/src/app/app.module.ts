@@ -12,6 +12,7 @@ import { ProductListPageComponent } from './product-list-page/product-list-page.
 import { PencePipe } from './pence.pipe';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { TeamCardComponent } from './team-card/team-card.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TeamCardComponent } from './team-card/team-card.component';
     ProductListPageComponent,
     PencePipe,
     SearchBoxComponent,
-    TeamCardComponent
+    TeamCardComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,

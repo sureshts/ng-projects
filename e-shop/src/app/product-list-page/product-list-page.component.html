@@ -11,7 +11,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of products">
-        <td>{{product.name}}</td>
+        <td>
+          <a [routerLink]="['/product', product.id]">
+            {{product.name}}
+          </a>
+        </td>
         <td>{{product.category}}</td>
         <td>{{product.price | pence}}</td>
       </tr>
