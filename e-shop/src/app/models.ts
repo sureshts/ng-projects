@@ -10,8 +10,8 @@ export var CATEGORIES: string[] = [
   "books",
   "clothing",
   "sports",
-  "foodstuf",
+  "foodstuffs",
   "stationary",
-  "pet supplies",
+  "pet-supplies",
   "other"
 ];
