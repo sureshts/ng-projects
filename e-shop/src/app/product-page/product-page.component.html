@@ -1,5 +1,13 @@
-<pre>{{product | json}}</pre>
 
-<p *ngIf="product == null">
+<div *ngIf="product === undefined">
+  loading...
+</div>
+
+<div *ngIf="product === null">
   This product does not exist
-</p>
+</div>
+
+<div *ngIf="product">
+  <pre>{{product | json}}</pre>
+  <button (click)="addToBasket()">Add to Basket</button>
+</div>

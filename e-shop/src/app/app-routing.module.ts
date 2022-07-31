@@ -4,13 +4,15 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ProductListPageComponent } from './product-list-page/product-list-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { BasketPageComponent } from './basket-page/basket-page.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomePageComponent},
     {path: 'about', component: AboutPageComponent},
     {path: 'product-list', component: ProductListPageComponent},
-    {path: 'product/:id', component: ProductPageComponent}
+    {path: 'product/:id', component: ProductPageComponent},
+    {path: 'basket', component: BasketPageComponent}
 ];
 
 @NgModule({

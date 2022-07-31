@@ -30,7 +30,7 @@ export class ProductService {
     );
   }
 
-  getProduct(id: number): Observable<Product | null> {
-    return this.http.get<Product | null>(environment.apiServer + "/products/" + id.toString());
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(environment.apiServer + "/products/" + id.toString());
   }
 }
