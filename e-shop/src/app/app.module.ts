@@ -13,6 +13,7 @@ import { PencePipe } from './pence.pipe';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { TeamCardComponent } from './team-card/team-card.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { BasketPageComponent } from './basket-page/basket-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
     PencePipe,
     SearchBoxComponent,
     TeamCardComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    BasketPageComponent
   ],
   imports: [
     BrowserModule,

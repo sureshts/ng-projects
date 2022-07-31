@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { BasketService } from '../basket.service';
 import { Product } from '../models';
 
 @Component({
@@ -9,20 +10,32 @@ import { Product } from '../models';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent {
+  productID: number;
   product: Product | undefined | null = undefined;
 
   constructor(
     private productService: ProductService,
+    private basketService: BasketService,
     private route: ActivatedRoute) {
 
-    this.product = undefined;
     let id: any = this.route.snapshot.paramMap.get('id');
     if(id == null) id = "";
     id = +id;
     if(isNaN(id)) id = 0;
+    this.productID = id;
+    this.product = undefined;
 
-    this.productService.getProduct(id).subscribe(product => {
-      this.product = product;
+    this.productService.getProduct(id).subscribe({
+      next: product => {
+        this.product = product;
+      },
+      error: _ => {
+        this.product = null;
+      }
     });
+  }
+
+  addToBasket(): void {
+    this.basketService.addProduct(this.productID);
   }
 }
