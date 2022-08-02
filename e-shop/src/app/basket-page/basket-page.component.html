@@ -6,33 +6,43 @@
       <th scope="col">Price</th>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
+      <tr *ngFor="let item of basketItems">
         <td>
-          {{item.basketItem.quantity}}
+          <input 
+            type="number"
+            value="{{item.quantity}}"
+            (keypress)="($event.charCode >= 48 && $event.charCode < 58)"
+            (change)="changeQuantity(item.productID, $event)">
         </td>
         <td>
-          <div *ngIf="item.product === undefined">
+          <div *ngIf="products[item.productID] === undefined">
             loading item...
           </div>
-          <div *ngIf="item.product === null">
+          <div *ngIf="products[item.productID] === null">
             error loading item!
           </div>
-          <a *ngIf="item.product" [routerLink]="['/product', item.basketItem.productID]">
-            {{item.product.name}}
+          <a *ngIf="products[item.productID]" [routerLink]="['/product', item.productID]">
+            {{products[item.productID]!.name}}
           </a>
         </td>
         <td>
-          <div *ngIf="item.product === undefined">
+          <div *ngIf="products[item.productID] === undefined">
             -
           </div>
-          <div *ngIf="item.product === null">
+          <div *ngIf="products[item.productID] === null">
             -
           </div>
-          <div *ngIf="item.product">
-            {{item.product.price | pence}}
+          <div *ngIf="products[item.productID]">
+            {{products[item.productID]!.price | pence}} 
+            x {{item.quantity}}
+            = {{(products[item.productID]!.price * item.quantity) | pence}}
           </div>
+        </td>
+        <td>
+          <button (click)="removeItem(item.productID)">Remove</button>
         </td>
       </tr>
     </tbody>
   </table>
+  <button (click)="clearBasket()">Clear Basket</button>
 </div>
