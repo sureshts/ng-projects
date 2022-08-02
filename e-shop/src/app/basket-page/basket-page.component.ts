@@ -14,30 +14,61 @@ type FilledBasketItem = {
   styleUrls: ['./basket-page.component.css']
 })
 export class BasketPageComponent {
-  items: FilledBasketItem[] = [];
+  basketItems: BasketItem[] = [];
+  products: Record<number, Product | null> = {};
 
   constructor(
     private productService: ProductService,
     private basketService: BasketService) {
     
-    let basketItems: BasketItem[] = this.basketService.getItems();
+    this.basketItems = this.basketService.getItems();
+    this.fetchProducts();
+  }
 
-    for(let i = 0; i < basketItems.length; i++) {
-      this.items.push({
-        basketItem: basketItems[i],
-        product: undefined,
+  private fetchProduct(productID: number): void {
+    this.productService.getProduct(productID)
+      .subscribe({
+        next: product => {
+          this.products[productID] = product;
+        },
+        error: _ => {
+          this.products[productID] = null;
+        }
       });
+  }
 
-      this.productService.getProduct(basketItems[i].productID)
-        .subscribe({
-          next: product => {
-            this.items[i].product = product;
-          },
-          error: _ => {
-            this.items[i].product = null;
-          }
-        });
+  private fetchProducts(): void {
+    for(let i = 0; i < this.basketItems.length; i++) {
+      this.fetchProduct(this.basketItems[i].productID);
     }
   }
 
+  changeQuantity(productID: number, event: any): void {
+    let quantity = event.target.value;
+    if(quantity <= 0 && !window.confirm("Are you sure you want to remove this item from your basket?")) {
+      let i;
+      for(i = 0; i < this.basketItems.length; i++)
+        if(this.basketItems[i].productID == productID)
+          break;
+      if(i == this.basketItems.length) return;
+      event.target.value = this.basketItems[i].quantity;
+      return;
+    }
+    this.basketService.setProductQuantity(productID, quantity);
+    this.basketItems = this.basketService.getItems();
+  }
+
+  removeItem(productID: number): void {
+    if(window.confirm("Are you sure you want to remove this item from your basket?")) {
+      this.basketService.removeProduct(productID);
+      this.basketItems = this.basketService.getItems();
+    }
+  }
+
+  clearBasket(): void {
+    if(window.confirm("Are you sure you want to clear your basket?")) {
+      this.basketService.clearBasket();
+      this.basketItems = this.basketService.getItems();
+    }
+  }
 }
